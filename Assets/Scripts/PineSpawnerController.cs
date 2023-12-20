@@ -4,11 +4,30 @@ using UnityEngine;
 
 public class PineSpawnerController : MonoBehaviour
 {
+    private const float PINE_OFFSET_Y = 2.0f;
     [SerializeField] private GameObject _pineContainer;
+
+    private IEnumerator _spawnPineCoroutine;
+    private GameObject _lastPine;
 
     private void Start()
     {
-        StartCoroutine(SpawnPineCoroutine());
+        _spawnPineCoroutine = SpawnPineCoroutine();
+    }
+
+    public void EnableSpawner()
+    {
+        StartCoroutine(_spawnPineCoroutine);
+    }
+
+    public void DisableSpawner()
+    {
+        StopCoroutine(_spawnPineCoroutine);
+    }
+
+    public void ResetPine()
+    {
+        Destroy(_lastPine);
     }
 
     private IEnumerator SpawnPineCoroutine()
@@ -23,6 +42,12 @@ public class PineSpawnerController : MonoBehaviour
 
     private void SpawnPine()
     {
-        Instantiate(_pineContainer, transform.position, Quaternion.identity);
+        float verticlePos = Random.Range(-PINE_OFFSET_Y, PINE_OFFSET_Y);
+
+        Vector2 position = new Vector2(transform.position.x, verticlePos);
+
+        _lastPine = Instantiate(_pineContainer, position, Quaternion.identity);
+
+        Destroy(_lastPine, 5);
     }
 }
