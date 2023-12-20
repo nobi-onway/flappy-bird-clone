@@ -275,6 +275,7 @@ MonoBehaviour:
   _scorePrefabs: {fileID: 2523438170656852077, guid: 3bc1ee8affeb7eb49922f07881264d45, type: 3}
   _scorePanel: {fileID: 1258088139}
   _tutorialPanel: {fileID: 1091389923}
+  _gameOverPanel: {fileID: 1610653765}
   _spritesOfNumber:
   - {fileID: 21300000, guid: c60134d64d43a8741ab6050f5ce0ce55, type: 3}
   - {fileID: 21300000, guid: 93e0067549e0f59488fab826ac8bbaf3, type: 3}
@@ -815,7 +816,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1610653766
 RectTransform:
   m_ObjectHideFlags: 0
